@@ -19,7 +19,7 @@ class SecurityConfig {
             .csrf { it.disable() }
             .formLogin { it.disable() }
             .authorizeHttpRequests {
-                it.requestMatchers("/auth/**").permitAll()
+                it.requestMatchers("/", "/auth/**").permitAll()
                 it.anyRequest().authenticated()
             }
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter::class.java)
